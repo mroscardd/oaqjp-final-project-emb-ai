@@ -13,11 +13,14 @@ def index():
     disgust = emotions["disgust"]
     fear = emotions["fear"]
     joy = emotions["joy"]
-    sandness = emotions["sadness"]
+    sadness = emotions["sadness"]
     dominant_emotion = emotions["dominant_emotion"]
 
-    return (f"Para la declaración dada, la respuesta del sistema es 'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy}, 'sadness': {sadness}. La emoción dominante es {dominant_emotion}"
-
+    return (f"""Para la declaración dada, la respuesta del sistema es 
+            'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 
+            'joy': {joy}, 'sadness': {sadness}. 
+            La emoción dominante es {dominant_emotion}""")
+            
 @app.route("/")
 def render_index_page():
     return render_template('index.html')
