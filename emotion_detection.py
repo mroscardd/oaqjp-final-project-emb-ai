@@ -22,12 +22,10 @@ def emotion_detector(text_to_analyze):
 
     response_json = response.json()
     emotions = response_json["emotionPredictions"][0]["emotion"]
-    dominan_emotion = max(emotions, key=emotions.get)
-    emotions["dominan_emotion"] = dominan_emotion
+    dominant_emotion = max(emotions, key=emotions.get)
+    emotions["dominant_emotion"] = dominant_emotion
     
 
 
     return emotions
 
-prueba = emotion_detector("me encanta")
-print (prueba)
