@@ -9,6 +9,9 @@ def index():
     text_to_analyze = request.args.get('textToAnalyze')
     emotions = emotion_detector(text_to_analyze)
 
+    if emotions['dominant_emotion'] is None:
+        return "¡Texto inválido! ¡Por favor, inténtalo de nuevo!"
+
     anger = emotions["anger"]
     disgust = emotions["disgust"]
     fear = emotions["fear"]
@@ -20,7 +23,8 @@ def index():
             'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 
             'joy': {joy}, 'sadness': {sadness}. 
             La emoción dominante es {dominant_emotion}""")
-            
+
+
 @app.route("/")
 def render_index_page():
     return render_template('index.html')
